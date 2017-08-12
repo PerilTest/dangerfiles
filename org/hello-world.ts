@@ -5,7 +5,7 @@ markdown("👍")
 markdown(`
 ### DSL
 \`\`\`
-${JSON.stringify(danger, null, "  ").substring(0, 15000))}
+${JSON.stringify(danger.github.thisPR, null, "  ")}
 \`\`\`
 
 `
