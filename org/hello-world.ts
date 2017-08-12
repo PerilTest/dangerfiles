@@ -2,7 +2,13 @@ import {markdown, danger} from "danger"
 
 markdown("👍")
 
-markdown(JSON.stringify(danger, null, "  ").substring(0, 45000))
+markdown(`
+### DSL
+\`\`\`
+${JSON.stringify(danger, null, "  ").substring(0, 15000))}
+\`\`\`
+
+`
 
 // // Try updating the word 'danger' to 'DaNgEr' in issues.
 // const body = danger.github.issue.body
