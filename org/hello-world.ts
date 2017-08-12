@@ -8,7 +8,7 @@ markdown(JSON.stringify(danger, null, "  ")
 const body = danger.github.issue.body
 if (body.includes("danger")) {
   const newBody = body.replace(/danger/, "DaNgEr")
-  warning("Changed word")
+  warn("Changed word")
   schedule(async () => {
     await danger.github.api.issues.edit({ ...danger.github.thisPR, body: newBody })
   })
