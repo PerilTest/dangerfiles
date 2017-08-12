@@ -7,7 +7,7 @@ markdown(`
 \`\`\`
 ${JSON.stringify(danger.github.thisPR, null, "  ")}
 \`\`\`
-
+`
 
 const issue = danger.github.issue
 if (issue.body.includes("danger")) {
