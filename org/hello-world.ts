@@ -8,14 +8,17 @@ markdown(`
 ${JSON.stringify(danger.github.thisPR, null, "  ")}
 \`\`\`
 
-`
 
-// // Try updating the word 'danger' to 'DaNgEr' in issues.
-// const body = danger.github.issue.body
-// if (body.includes("danger")) {
-//   const newBody = body.replace(/danger/, "DaNgEr")
-//   warn("Changed word")
-//   schedule(async () => {
-//     await danger.github.api.issues.edit({ ...danger.github.thisPR, body: newBody })
-//   })
-// }
+const issue = danger.github.issue
+if (issue.body.includes("danger")) {
+  const newBody = issue.body.replace(/danger/, "DaNgEr")
+  const repo = issue.repository
+  schedule(async () => {
+    await danger.github.api.issues.edit({
+      owner: repo.owner.login,
+      repo: repo.name,
+      number: issue.number,
+      body: newBody,
+    })
+  })
+}
