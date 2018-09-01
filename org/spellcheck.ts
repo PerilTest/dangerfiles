@@ -1,5 +1,5 @@
 import spellcheck from 'danger-plugin-spellcheck'
-import {warning} from "danger"
+import {warn} from "danger"
 
-warning("This looks like a great PR")
+warn("This looks like a great PR")
 schedule(spellcheck({ settings: "artsy/artsy-danger@spellcheck.json" }))
